@@ -15,7 +15,7 @@
 | birthday           | date         | null: false                    |
 
 has_many :items, dependent: :destroy
-has_one :sending_destination, dependent: :destroy
+has_many :purchase_history, dependent: :destroy
 
 
 
@@ -23,11 +23,11 @@ has_one :sending_destination, dependent: :destroy
 
 | Column     | Type      | Options     |
 | -------    | --------- | ----------- |
-|  user_id   | references| null: false, foreign_key: true |
-|  item_id   | references| null: false, foreign_key: true |
+|  user   | references| null: false, foreign_key: true |
+|  item   | references| null: false, foreign_key: true |
 
 belongs_to :user
-belongs_to :item
+has_one :sending_destination, dependent: :destroy
 
 
 
@@ -35,17 +35,18 @@ belongs_to :item
 
 | Column             | Type       | Options                        |
 | ------             | ---------- | ------------------------------ |
-| item_name          | string     | null: false |
-| introduction       | text       | null: false |
-| price              | integer    | null: false |
-| brand_id           | text       | null: false |
-| items_condition_id | integer    | null: false |
+| item_name_id       | integer    | null: false |
+| introduction_id    | integer    | null: false |
+| price_id           | integer    | null: false |
+| brand_id           | integer    | null: false |
+| item_condition_id  | integer    | null: false |
 | postage_payer_id   | integer    | null: false |
 | prefecture_code_id | integer    | null: false |
 | category_id        | integer    | null: false |
 | user               | references | null: false,foreign_key: true |
 
  belongs_to :user
+ has_one :purchase_history, dependent: :destroy
 
 
 
@@ -62,7 +63,7 @@ belongs_to :item
 | building_name               | string       |                                |
 | phone_number                | string       | unique: true                   |
 
- belongs_to: user
+ belongs_to :purchase_history, dependent: :destroy
 
 
 
