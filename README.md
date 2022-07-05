@@ -14,8 +14,8 @@
 |family_name_kana    | string       | null: false                    |
 | birthday           | date         | null: false                    |
 
-has_many :items, dependent: :destroy
-has_many :purchase_histories, dependent: :destroy
+has_many :items
+has_many :purchase_histories
 
 
 
@@ -27,7 +27,8 @@ has_many :purchase_histories, dependent: :destroy
 |  item   | references| null: false, foreign_key: true |
 
 belongs_to :user
-has_one :sending_destination, dependent: :destroy
+belongs_to :item
+has_one :sending_destination
 
 
 
@@ -46,7 +47,7 @@ has_one :sending_destination, dependent: :destroy
 | user               | references | null: false,foreign_key: true |
 
  belongs_to :user
- has_one :purchase_history, dependent: :destroy
+ has_one :purchase_history
 
 
 
@@ -64,7 +65,7 @@ has_one :sending_destination, dependent: :destroy
 | phone_number                | string       | null: false                    |
 | purchase_history            | references   |  null: false,foreign_key: true |
 
- belongs_to :purchase_history, dependent: :destroy
+ belongs_to :purchase_history
 
 
 
