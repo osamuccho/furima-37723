@@ -15,11 +15,11 @@
 | birthday           | date         | null: false                    |
 
 has_many :items, dependent: :destroy
-has_many :purchase_history, dependent: :destroy
+has_many :purchase_histories, dependent: :destroy
 
 
 
-## purchase_historyテーブル
+## purchase_historiesテーブル
 
 | Column     | Type      | Options     |
 | -------    | --------- | ----------- |
@@ -35,9 +35,9 @@ has_one :sending_destination, dependent: :destroy
 
 | Column             | Type       | Options                        |
 | ------             | ---------- | ------------------------------ |
-| item_name_id       | integer    | null: false |
-| introduction_id    | integer    | null: false |
-| price_id           | integer    | null: false |
+| item_name          | string     | null: false |
+| introduction       | text       | null: false |
+| price              | integer    | null: false |
 | brand_id           | integer    | null: false |
 | item_condition_id  | integer    | null: false |
 | postage_payer_id   | integer    | null: false |
@@ -56,12 +56,13 @@ has_one :sending_destination, dependent: :destroy
 
 | Column                      | Type         | Options                        |
 | ------                      | ----------   | ------------------------------ |
-| post_code                   | string       | null: false                   |
+| post_code                   | string       | null: false                    |
 | prefecture_code_id          | integer      | null: false                    |
 | city                        | string       | null: false                    |
 | house_number                | string       | null: false                    |
 | building_name               | string       |                                |
-| phone_number                | string       | unique: true                   |
+| phone_number                | string       | null: false                    |
+| purchase_history            | references   |  null: false,foreign_key: true |
 
  belongs_to :purchase_history, dependent: :destroy
 
