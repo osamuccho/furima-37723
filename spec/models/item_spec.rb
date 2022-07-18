@@ -91,6 +91,12 @@ end
      expect(@item.errors.full_messages).to include("Price can't be blank")
    end
 
+   it "priceに半角数字以外が含まれている場合は出品できない" do
+    @item.price = 'あaL阿33'
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Price is not a number")
+  end
+
 
    it "priceが299以下だと登録できないこと" do
     @item.price = '298'
@@ -103,6 +109,51 @@ end
     @item.valid?
     expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
    end
+
+   it "商品画像が空では出品出来ない" do
+    @item.image = nil
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Image can't be blank")
+   end
+
+   it "userが紐付いていなければ出品できない" do
+    @item.user = nil
+    @item.valid?
+    expect(@item.errors.full_messages).to include('User must exist')
+   end
+
+   #activhash項目
+   it "カテゴリーに「---」が選択されている場合は出品できない" do
+    @item.category_id = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Category can't be blank")
+   end
+
+   it "商品の状態に「---」が選択されている場合は出品できない" do
+    @item.item_condition_id = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Item condition can't be blank")
+   end
+
+   it "配送料の負担に「---」が選択されている場合は出品できない" do
+    @item.postage_payer_id = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Postage payer can't be blank")
+   end
+
+   it "発送元の地域に「---」が選択されている場合は出品できない" do
+    @item.prefecture_code_id = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Prefecture code can't be blank")
+   end
+
+   it "発送までの日数に「---」が選択されている場合は出品できない" do
+    @item.delivery_days_id = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Delivery days can't be blank")
+   end
+
+
 
   end
 end
