@@ -39,7 +39,7 @@ has_one :sending_destination
 | item_name          | string     | null: false |
 | introduction       | text       | null: false |
 | price              | integer    | null: false |
-| brand_id           | integer    | null: false |
+| delivery_days_id   | integer    | null: false | 
 | item_condition_id  | integer    | null: false |
 | postage_payer_id   | integer    | null: false |
 | prefecture_code_id | integer    | null: false |
