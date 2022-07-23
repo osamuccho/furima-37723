@@ -132,7 +132,7 @@
       <% if @items.present? %>
        <% @items.each do |item| %>
       <li class='list'>
-        <%= link_to "/items/show" do %>
+        <%= link_to item_path(item.id) do %>
             
              
              
@@ -179,7 +179,7 @@
      
 
       <li class='list'>
-        <%= link_to '/items/show' do %>
+        <%= link_to item_path(item.id) do %>
         
         
        
