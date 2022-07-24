@@ -25,7 +25,6 @@
       </span>
     </div>
 
-    <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 
    <%# if (user_signed_in?) && (@item.purchase_history.blank?) %>
     <% if current_user == @item.user %>
@@ -42,7 +41,6 @@
     <%# //商品が売れていない場合はこちらを表示しましょう %>
 
 
-    <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 
     <div class="item-explain-box">
       <span><%= @item.introduction %></span>
