@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   before_action :user_login, only: [:edit, :destroy]
   def index
     @items = Item.order('created_at DESC')
-
   end
 
   def new
@@ -28,9 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user == @item.user
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.user_id != current_user.id
   end
 
   def update
@@ -42,13 +39,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
     if @item.destroy
       redirect_to root_path
     else
       redirect_to root_path
     end
- end
+  end
 
   private
 
@@ -64,6 +60,4 @@ class ItemsController < ApplicationController
   def user_login
     redirect_to root_path unless current_user.id == @item.user_id
   end
-
-
 end
