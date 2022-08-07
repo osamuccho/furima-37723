@@ -45,29 +45,8 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Introduction can't be blank")
       end
 
-      it 'category_idがない場合は登録できないこと' do
-        @item.category_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
-      end
 
-      it 'postage_payer_idがない場合は登録できないこと' do
-        @item.postage_payer_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Postage payer can't be blank")
-      end
 
-      it 'prefecture_code_idがない場合は登録できないこと' do
-        @item.prefecture_code_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture code can't be blank")
-      end
-
-      it 'delivery_days_idがない場合は登録できないこと' do
-        @item.delivery_days_id = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery days can't be blank")
-      end
 
       it 'priceがない場合は登録できないこと' do
         @item.price = ''
@@ -107,31 +86,31 @@ RSpec.describe Item, type: :model do
 
       # activhash項目
       it 'カテゴリーに「---」が選択されている場合は出品できない' do
-        @item.category_id = 0
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it '商品の状態に「---」が選択されている場合は出品できない' do
-        @item.item_condition_id = 0
+        @item.item_condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Item condition can't be blank")
       end
 
       it '配送料の負担に「---」が選択されている場合は出品できない' do
-        @item.postage_payer_id = 0
+        @item.postage_payer_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage payer can't be blank")
       end
 
       it '発送元の地域に「---」が選択されている場合は出品できない' do
-        @item.prefecture_code_id = 0
+        @item.prefecture_code_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture code can't be blank")
       end
 
       it '発送までの日数に「---」が選択されている場合は出品できない' do
-        @item.delivery_days_id = 0
+        @item.delivery_days_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery days can't be blank")
       end

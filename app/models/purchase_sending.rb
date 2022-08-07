@@ -10,7 +10,7 @@ class PurchaseSending
     validates :house_number
     validates :phone_number, format: { with: /\A\d{10,11}\z/ }
     validates :prefecture_code_id, numericality: { other_than: 1, message: "can't be blank" }
-    validates :token, presence: true
+    validates :token
   end
 
   def save
