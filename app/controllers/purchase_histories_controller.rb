@@ -3,6 +3,9 @@ class PurchaseHistoriesController < ApplicationController
   before_action :set_furima, only: [:index, :create]
   before_action :prevent_url, only: [:index, :create]
 
+  
+
+
   def index
     @purchase_sending = PurchaseSending.new
   end
