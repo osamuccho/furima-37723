@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ニックネーム
+        birthday: 誕生日
+        family_name: 姓
+        first_name: 名
+        family_name_kana: 姓（カタカナ）
+        first_name_kana: 名（カタカナ）
+
+      item:
+         item_name: 商品名
+         image: 商品画像
+         introduction: 商品の説明
+         price: 価格
+         delivery_days_id: 配送準備日
+         item_condition_id: 商品の状態
+         postage_payer_id: 配送料の負担
+         category_id: カテゴリー
+         prefecture_code_id: 配送元の地域
+
+  activemodel:
+    attributes:
+      purchase_sending:
+         post_code: 郵便番号
+         city: 市区町村
+         house_number: 番地
+         phone_number: 電話番号
+         prefecture_code_id: 都道府県
+         token: トークン
+
+      
+
+
+      
