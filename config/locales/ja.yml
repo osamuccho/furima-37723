@@ -28,7 +28,7 @@ ja:
          house_number: 番地
          phone_number: 電話番号
          prefecture_code_id: 都道府県
-         token: トークン
+         token: カード情報
 
       
 
